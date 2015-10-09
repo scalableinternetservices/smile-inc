@@ -7,16 +7,16 @@ Chroma: A user can a color indicating their mood along with a status update. Thr
 ##Members
 
 FNU Pramono
-![Pramono](https://www.facebook.com/messages/conversation-907623512655711#)
+![Pramono](readme_img/pramona.jpg)
 
 Roman Chang
-![Roman](https://scontent-sjc2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10417651_10202929235645989_3146613422093261295_n.jpg?oh=d87a39cbf82bc6a3d5ae17cb7a2e5965&oe=568A3C99)
+![Roman](readme_img/roman.jpg)
 
 Jason Woo
-![Jason](https://www.facebook.com/messages/conversation-907623512655711#)
+![Jason](readme_img/jason.jpg)
 
 My Phuong Mac
-![Jen](https://www.facebook.com/messages/conversation-907623512655711#)
+![Jen](readme_img/jen.jpg)
 
 ##Pivotal Tracker
 https://www.pivotaltracker.com/n/projects/1446782
