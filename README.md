@@ -7,16 +7,20 @@ Chroma: A user can a color indicating their mood along with a status update. Thr
 ##Members
 
 FNU Pramono
-![Pramono](readme_img/pramona.jpg =250x)
+
+![Pramono](readme_img/pramona.jpg)
 
 Roman Chang
-![Roman](readme_img/roman.jpg =250x)
+
+![Roman](readme_img/roman.jpg)
 
 Jason Woo
-![Jason](readme_img/jason.jpg =250x)
+
+![Jason](readme_img/jason.jpg)
 
 My Phuong Mac
-![Jen](readme_img/jen.jpg =250x)
+
+![Jen](readme_img/jen.jpg)
 
 ##Pivotal Tracker
 https://www.pivotaltracker.com/n/projects/1446782
