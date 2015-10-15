@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MoodsControllerTest < ActionController::TestCase
   setup do
-    @mood = moods(:one)
+    @mood = moods(:joy)
   end
 
   test "should get index" do
