@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :mood_id %><br>
-    <%= f.text_field :mood_id %>
+    <%= collection_select(:mood_update, :mood_id, Mood.all, :id, :mood) %> 
   </div>
   <div class="field">
     <%= f.label :desc %><br>
