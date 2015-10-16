@@ -15,7 +15,7 @@
   <tbody>
     <% @mood_updates.each do |mood_update| %>
       <tr>
-        <td><%= mood_update.mood %></td>
+        <td><%= mood_update.mood.mood %></td>
         <td><%= mood_update.desc %></td>
         <td><%= mood_update.intensity %></td>
         <td><%= link_to 'Show', mood_update %></td>
