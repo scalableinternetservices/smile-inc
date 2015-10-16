@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+sadness:
+  color: 000066
+  mood: sad
+
+joy:
+  color: CCFF66
+  mood: happy
+
+fear:
+  color: 9900CC
+  mood: afraid
+
+anger:
+  color: CC0033
+  mood: angry
+
+disgust:
+  color: 33CC33
+  mood: disgusted
