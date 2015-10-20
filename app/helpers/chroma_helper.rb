@@ -1,0 +1,2 @@
+module ChromaHelper
+end

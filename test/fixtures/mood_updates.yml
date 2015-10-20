@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  mood_id: 
+  mood: joy
   desc: MyString
   intensity: 1
 
 two:
-  mood_id: 
+  mood: anger 
   desc: MyString
   intensity: 1
