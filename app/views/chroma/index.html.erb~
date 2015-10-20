@@ -1,6 +1,31 @@
-<p id="notice"><%= notice %></p>
+<h1>Chroma</h1>
 
-<h1>Listing Mood Updates</h1>
+<h3>Here is the list of your saved moods</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Color</th>
+      <th>Mood</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @moodlist.each do |mood| %>
+      <tr>
+        <td><%= mood.color %></td>
+        <td><%= mood.mood %></td>
+        <td><%= link_to 'Show', mood %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<!--
+<h3>Here is the record of your mood updates</h3>
 
 <table>
   <thead>
@@ -13,7 +38,7 @@
   </thead>
 
   <tbody>
-    <% @mood_updates.each do |mood_update| %>
+    <% @updatelist.each do |mood_update| %>
       <tr>
         <td><%= mood_update.mood.mood %></td>
         <td><%= mood_update.desc %></td>
@@ -27,5 +52,4 @@
 </table>
 
 <br>
-
-<%= link_to 'New Mood update', new_mood_update_path %>
+-->
