@@ -50,3 +50,6 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+# Ignore emacs temporary files
+*~
