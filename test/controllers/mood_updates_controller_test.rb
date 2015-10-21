@@ -4,7 +4,8 @@ class MoodUpdatesControllerTest < ActionController::TestCase
   fixtures :moods
 
   setup do
-    @joy = moods(:joy)
+    @joy_attr = moods(:joy)
+    @joy = Mood.create(mood: @joy_attr.mood, color: @joy_attr.color)
     @mood_update = mood_updates(:one)
   end
 
