@@ -1,0 +1,13 @@
+<h1><%= @user.username %>'s Profile </h1>
+
+<h1>
+  <%= gravatar_for @user %> </br>
+</h1>
+
+<p> INFORMATION </br>
+  USERNAME: <%= @user.username %> </br>
+  ABOUT ME : <%=@user.description %> </br>
+  EMAIL : <%=@user.email %>
+</p>
+
+

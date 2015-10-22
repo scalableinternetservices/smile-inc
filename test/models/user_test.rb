@@ -11,9 +11,14 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "should have something under description" do
+  test "Username cannot be more than 32 char" do
+    @user.username = "a"*32
+    assert @user.valid?
+  end
+  
+  test "doesn't matter if description is empty" do
     @user.description = " "
-    assert_not @user.valid?
+    assert @user.valid?
   end
   
 end

@@ -11,6 +11,7 @@ username: jenni
    encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
    confimed_at: <%= Time.now %>
    description: I like burritos
+
 two:
    username: happy
    email: happy@hotmail.com
@@ -18,4 +19,10 @@ two:
    encrypted_password: <%= Devise::Encryptor.digest(User, 'password1') %>
    confimed_at: <%= Time.now %>
    description: I like taccos
-#  column: value
+
+three:
+   username: blahblah
+   email: blahblah@blah.com
+   password: blahblah123
+   encrypted_password: <%= Devise::Encryptor.digest(User, 'blahblah123') %>
+   confirmed_at: <% Time.now %> 

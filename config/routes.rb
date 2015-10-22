@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'users/profile'
+
   devise_for :users, controllers: { sessions: 'users/sessions' }
+  resources :profiles, :only => [:show]
   resources :mood_updates
   resources :moods
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
