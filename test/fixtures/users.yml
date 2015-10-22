@@ -5,24 +5,15 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-username: jenni
+   username: jenni
    email: jenni@hotmail.com
-   password: password
-   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
-   confimed_at: <%= Time.now %>
+   encrypted_password: <%= Devise::Encryptor.digest(User, 'password1') %>
+   created_at: <%= Time.now %>
    description: I like burritos
 
 two:
    username: happy
    email: happy@hotmail.com
-   password: password1
    encrypted_password: <%= Devise::Encryptor.digest(User, 'password1') %>
-   confimed_at: <%= Time.now %>
+   created_at: <%= Time.now %>
    description: I like taccos
-
-three:
-   username: blahblah
-   email: blahblah@blah.com
-   password: blahblah123
-   encrypted_password: <%= Devise::Encryptor.digest(User, 'blahblah123') %>
-   confirmed_at: <% Time.now %> 
