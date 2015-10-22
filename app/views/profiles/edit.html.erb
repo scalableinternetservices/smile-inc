@@ -1,0 +1,28 @@
+<h1>EDIT Profile Page</h1>
+
+<div class="gravatar_edit">
+  <%= gravatar_for @user %>
+  <a href="http://gravatar.com/emails" target="_blank"> <br/>change profile picture</a>
+</div>
+
+<p> INFORMATION </br>
+
+<%= form_for("user", :url => user_session_path) do |f| %>
+   <p> devise_error_messages! </p>
+
+  <%= f.label :username %>
+  <%= f.text_field :username, class: 'form-control' %> <br/>
+  
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %> <br/>
+  
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %> <br/>
+  
+  <%= f.label :password_confirmation, "Confirmation" %> 
+  <%= f.password_field :password_confirmation, class: 'form-control' %> <br/ >
+    
+  <%= f.submit "Save changes", class: "btn btn-primary" %>
+  <% end %>
+
+</p>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
-  resources :profiles, :only => [:show]
+  resources :profiles, :only => [:show, :edit]
   resources :mood_updates
   resources :moods
 

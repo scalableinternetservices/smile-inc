@@ -1,2 +1,0 @@
-<h1>Profile#profile_page</h1>
-<p> <%= @user.name %>
