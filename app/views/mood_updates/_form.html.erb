@@ -12,16 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :mood_id %><br>
-    <%= collection_select(:mood_update, :mood_id, Mood.all, :id, :mood) %> 
-  </div>
-  <div class="field">
     <%= f.label :desc %><br>
     <%= f.text_field :desc %>
   </div>
   <div class="field">
     <%= f.label :intensity %><br>
     <%= f.number_field :intensity %>
+  </div>
+  <div class="field">
+    <%= f.label :mood_id %><br>
+    <%= collection_select(:mood_update, :mood_id, Mood.all, :id, :mood) %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= collection_select(:mood_update, :user_id, User.all, :id, :email) %>
   </div>
   <div class="actions">
     <%= f.submit %>

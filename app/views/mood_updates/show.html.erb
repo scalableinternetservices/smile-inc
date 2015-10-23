@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Mood:</strong>
-  <%= @mood_update.mood.mood %>
-</p>
-
-<p>
   <strong>Desc:</strong>
   <%= @mood_update.desc %>
 </p>
@@ -13,6 +8,16 @@
 <p>
   <strong>Intensity:</strong>
   <%= @mood_update.intensity %>
+</p>
+
+<p>
+  <strong>Mood:</strong>
+  <%= @mood_update.mood %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @mood_update.user %>
 </p>
 
 <%= link_to 'Edit', edit_mood_update_path(@mood_update) %> |

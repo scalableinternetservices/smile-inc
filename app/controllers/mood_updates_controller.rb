@@ -69,6 +69,6 @@ class MoodUpdatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mood_update_params
-      params.require(:mood_update).permit(:mood_id, :desc, :intensity)
+      params.require(:mood_update).permit(:desc, :intensity, :mood_id, :user_id)
     end
 end

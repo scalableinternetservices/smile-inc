@@ -2,10 +2,12 @@
 
 one:
   mood: joy
+  user: one
   desc: MyString
   intensity: 1
 
 two:
   mood: anger 
+  user: one
   desc: MyString
   intensity: 1

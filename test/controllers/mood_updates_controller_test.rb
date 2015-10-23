@@ -1,11 +1,7 @@
 require 'test_helper'
 
 class MoodUpdatesControllerTest < ActionController::TestCase
-  fixtures :moods
-
   setup do
-    @joy_attr = moods(:joy)
-    @joy = Mood.create(mood: @joy_attr.mood, color: @joy_attr.color)
     @mood_update = mood_updates(:one)
   end
 
@@ -22,7 +18,7 @@ class MoodUpdatesControllerTest < ActionController::TestCase
 
   test "should create mood_update" do
     assert_difference('MoodUpdate.count') do
-      post :create, mood_update: { desc: @mood_update.desc, intensity: @mood_update.intensity, mood_id: @joy.id }
+      post :create, mood_update: { desc: @mood_update.desc, intensity: @mood_update.intensity, mood_id: @mood_update.mood_id, user_id: @mood_update.user_id }
     end
 
     assert_redirected_to mood_update_path(assigns(:mood_update))
@@ -39,7 +35,7 @@ class MoodUpdatesControllerTest < ActionController::TestCase
   end
 
   test "should update mood_update" do
-    patch :update, id: @mood_update, mood_update: { desc: @mood_update.desc, intensity: @mood_update.intensity, mood_id: @joy.id }
+    patch :update, id: @mood_update, mood_update: { desc: @mood_update.desc, intensity: @mood_update.intensity, mood_id: @mood_update.mood_id, user_id: @mood_update.user_id }
     assert_redirected_to mood_update_path(assigns(:mood_update))
   end
 

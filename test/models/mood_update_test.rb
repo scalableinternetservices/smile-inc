@@ -5,6 +5,7 @@ class MoodUpdateTest < ActiveSupport::TestCase
   #   assert true
   
   fixtures :moods
+  fixtures :users
 
   #Test user submission of new mood
   test "mood updates must have mood and intensity" do
