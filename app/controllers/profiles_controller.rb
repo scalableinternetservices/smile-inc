@@ -4,11 +4,18 @@ class ProfilesController < ApplicationController
     @user=User.find(params[:id])
   end
 
+  #Update user profile (so far only username, email, and description)
+  def update
+    @user=User.find(params[:id])
+    @user.update_attributes(user_params)
+  end
+  
   def edit
     @user=User.find(params[:id])
-    if @user.update_attributes(params.permit(:username, :email, :password, :password_confirmation))
-      #redirect somewhere
-    end
   end
-    
+
+  private
+   def user_params
+     params.require(:user).permit(:username, :email, :description)
+   end  
 end
