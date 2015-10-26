@@ -1,0 +1,13 @@
+<h1>Profile Page</h1>
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.username %>
+</h1>
+
+<p> INFORMATION </br>
+  USERNAME:  <%= @user.username %> </br>
+  ABOUT ME : <%= @user.description %> </br>
+  EMAIL :    <%= @user.email %> </br>
+  <%= link_to "Edit Profile" , edit_profile_path %>
+</p>
+

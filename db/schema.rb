@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014011738) do
+ActiveRecord::Schema.define(version: 20151026184430) do
 
   create_table "mood_updates", force: :cascade do |t|
     t.integer  "mood_id"
@@ -30,7 +30,18 @@ ActiveRecord::Schema.define(version: 20151014011738) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_infos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string   "username",               default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -43,6 +54,7 @@ ActiveRecord::Schema.define(version: 20151014011738) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "description"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
