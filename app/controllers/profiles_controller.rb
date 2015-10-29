@@ -1,13 +1,9 @@
 class ProfilesController < ApplicationController
 
-  
-  #  before_action :set_profile, only: [:show, :edit, :update, :destroy]
-
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-   # @profile=Profile.find_by user_id: current_user.id
-   # @attributes = Profile.attribute_names - %w(id user_id created_at updated_at)
+    @profile=Profile.find_by user_id: current_user.id
   end
 
   # GET /profiles/new
@@ -17,9 +13,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-#   @profile = current_user.profile
     @profile=Profile.find_by user_id: current_user.id
- #   @attributes = Profile.attribute_names - %w(id user_id created_at updated_at)
   end
 
   # POST /profiles
@@ -40,7 +34,6 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1.json
   def update
     @profile=Profile.find_by user_id: current_user.id
-   # @profile= Profile.find(params[:id])
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
@@ -56,12 +49,10 @@ class ProfilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
   def set_profile
     @profile=Profile.find_by user_id: current_user.id
-#      @profile = Profile.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  #Note: update this everytime we add a new attribute to Profile model
     def profile_params
-  #    params[:profile]
       params.require(:profile).permit(:first_name, :last_name, :about_me, :avatar)
     end
 end

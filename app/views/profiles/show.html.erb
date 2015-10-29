@@ -1,4 +1,20 @@
-<h1> PROFILE UPDATE SUCCESS </h1>
+<h1> PROFILE  </h1>
 <p id="notice"><%= notice %></p>
-<%= link_to 'Back', edit_profile_path(current_user) %>
+
+<li class="round-image-50"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
+<div>  
+<b>First name: </b><%= @profile.first_name %> <br/>
+</div>
+
+<div>
+<b>Last name: </b><%= @profile.last_name %><br />
+</div>
+
+<div>
+<b>About me: </b><%= @profile.about_me %><br />
+</div>
+
+</p>
+<%= link_to 'Edit Profile', edit_profile_path(current_user) %>
+<%= link_to 'Home', root_path %>
 
