@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026184430) do
+ActiveRecord::Schema.define(version: 20151029063156) do
 
   create_table "mood_updates", force: :cascade do |t|
     t.integer  "mood_id"
@@ -26,16 +26,6 @@ ActiveRecord::Schema.define(version: 20151026184430) do
   create_table "moods", force: :cascade do |t|
     t.string   "color"
     t.string   "mood"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_infos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
