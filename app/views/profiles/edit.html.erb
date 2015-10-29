@@ -1,0 +1,24 @@
+<h1>Editing Profile</h1>
+<p><%= puts current_user.id %></p><br/>
+
+<%= form_for @profile, id: current_user.id do |f| %>
+<div class="field">
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name %>
+</div>
+
+<div class="field">
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name %>
+</div>
+
+<div class="field">
+  <%= f.label :about_me %><br />
+  <%= f.text_field :about_me %>
+</div>
+
+  <div class="actions">
+  <%= f.submit "update" %>
+  </div>
+
+<% end %>

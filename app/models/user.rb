@@ -11,7 +11,12 @@ class User < ActiveRecord::Base
             :uniqueness => {
               :case_sensitive => false
             }
-  
+  has_one :profile
+
+  #creates profile at user registration
+#  before_create :build_profile
+  after_create :create_profile
+
   #secure validation of username to prevent putting email as username
   def validate_username
     if User.where(email: username).exist?
