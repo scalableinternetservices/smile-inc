@@ -24,7 +24,6 @@
 </section>
 
 <%= link_to 'Edit Profile', edit_profile_path(current_user) %>
-<%= link_to 'Home', root_path %>
 
 <% else %>
 
@@ -48,7 +47,6 @@
   <%= render 'stats', locals: {profile: @profile.id}  %>
 </section>
 
-<%= link_to 'Home', root_path %>
 <% end %>
 
 

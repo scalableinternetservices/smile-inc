@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def following
     @title = "Following"
     @user  = User.find(params[:id])
@@ -13,3 +14,4 @@ class UsersController < ApplicationController
     render 'profiles/show_follow'
   end
 end
+
