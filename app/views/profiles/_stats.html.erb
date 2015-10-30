@@ -1,0 +1,17 @@
+<% @user ||= current_user %>
+<div class="stats">
+
+    <strong id="following" class="stat">
+      <%= @user.following.count %>
+    </strong>
+  <%= link_to(' following', followers_user_path(@user)) %>
+ 
+
+
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    followers
+  </a>
+</div>
