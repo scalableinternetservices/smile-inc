@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
 
+  #resources :comments, :only => [:create]
+  
+  
+
+
+
+
   get 'chroma/index'
 
-  resources :mood_updates
+  resources :mood_updates do
+    resources :comments, :only => [:create]
+  end
+
+
   resources :moods
 
   devise_for :users, controllers: {
