@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   
   def create
     @mood_update = MoodUpdate.find(params[:mood_update_id])
-    @comment = Comment.new(comment_params)
+    @comment = @mood_update.comment.new(comment_params)
     #@comment = Comment.new(comment_params)
     if @comment.save
       redirect_to @mood_update
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   
 private
   def set_comment
-    @comment = Comment.find_by mood_id: current_mood.id
+    @comment = Comment.find_by mood_update_id: current_mood.id
   end
 
   def comment_params

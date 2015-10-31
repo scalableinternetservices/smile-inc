@@ -1,8 +1,8 @@
-<%= div for comment do %>
-
-	<p> <strong> Posted <%= time_ago_in_words(comment.created_at) %> ago </strong> 
-	<br/>
-
-	<%= comment.body %> </p>
-
-<% end %>	
+<% @mood_update.comment.each do |comment| %>
+<div>
+  <p>
+  Comment created at : <%= comment.created_at %> </br>
+    <%= comment.body %> </br>
+  </p>
+</div>
+<% end %>

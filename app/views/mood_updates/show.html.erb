@@ -20,7 +20,7 @@
 
 <h2> Comments </h2>
 <div id="comments">
-
+<%= render partial: "comment", locals: {mood_update: @mood_update.comment} %>
 </div>
 <%= form_for ([ @mood_update, Comment.new]) do |f| %>
 <p>
