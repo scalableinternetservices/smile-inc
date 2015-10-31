@@ -1,11 +1,25 @@
 class CommentsController < ApplicationController
+  def new
+    @comment = Comment.new
+  end
+  
+  def create
+    @mood_update = MoodUpdate.find(params[:mood_update_id])
+    @comment = Comment.new(comment_params)
+    #@comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to @mood_update
+    end
+      
+  end
 
-	def create
-		@mood_update = MoodUpdate.find(params[:id])
-		@comments = @mood_update.comments.create!(params[:comment])
+  
+private
+  def set_comment
+    @comment = Comment.find_by mood_id: current_mood.id
+  end
 
-		redirect_to @mood_update
-
-	end
-
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
 end
