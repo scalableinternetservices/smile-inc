@@ -1,9 +1,7 @@
 require 'test_helper'
 
 class MoodUpdateTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  
+
   fixtures :moods
 
   #Test user submission of new mood

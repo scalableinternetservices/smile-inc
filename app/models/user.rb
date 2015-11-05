@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
   has_many :comment
 
   #creates profile at user registration
-#  before_create :build_profile
   after_create :create_profile
 
   #secure validation of username to prevent putting email as username
