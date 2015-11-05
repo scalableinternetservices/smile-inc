@@ -4,7 +4,7 @@
   <ul class="users follow">
     <% puts @user.username %>
     <% @users.each do |person| %>
-    <%= person.username %><br>
+    <%= link_to person.username, profile_path(person.id) %><br>
     <% end %>
   </ul>
 <% end %>

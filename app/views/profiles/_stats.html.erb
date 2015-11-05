@@ -1,6 +1,7 @@
-<% @user ||= current_user %>
+<!--<% @user ||= current_user %>-->
+<% @user.id = @profile.id %>
 <div class="stats">
-  <a href="<%= following_user_path(@user) %>">
+  <a href="<%= following_user_path(@user) %>"> 
     <strong id="following" class="stat">
       <%= @user.following.count %>
     </strong>
