@@ -6,8 +6,6 @@
 #
 one: 
   email: "foo@bar.com"
-# column: value
-#
+
 two: 
   email: "other@bar.com"
-#  column: value

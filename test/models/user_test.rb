@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "has user profile" do
+    u = User.create(email: "user@test.com")
+    u.profile.exists?
+  end
 end
