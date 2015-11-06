@@ -26,6 +26,14 @@
   </tbody>
 </table>
 
+<%= 
+chart_points = {}
+@mood_updates.each do |mood_update|
+    chart_points[mood_update.created_at] = mood_update.intensity
+end
+
+line_chart chart_points %>
+
 <br>
 
 <%= link_to 'New Mood update', new_mood_update_path %>
