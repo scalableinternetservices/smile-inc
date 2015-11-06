@@ -2,10 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @font-face{
-   font-family: billabong;
-   src: url(billabong.ttf);
+   font-family: 'Billabong';
+   src:asset-url('billabong.otf');
+   src:font-url('billabong.ttf');
+   font-weight: normal;
+   font-style: normal;
 }
 
-h1 {
-   font-family: billabong;
+#hometitle {
+   font-family: 'Billabong', serif;
 }
