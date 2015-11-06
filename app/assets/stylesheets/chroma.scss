@@ -10,5 +10,17 @@
 }
 
 #hometitle {
-   font-family: 'Billabong', serif;
+   font-family: 'Billabong';
+}
+
+@font-face {
+   font-family: 'HelveticaNeue-Thin';
+   src:asset-url('HelveticaNeue-Thin.otf');
+   src:font-url('HelveticaNeue-Thin.otf');
+   font-weight: normal;
+   font-style: normal;
+}
+
+* {
+  font-family: 'HelveticaNeue-Thin';
 }

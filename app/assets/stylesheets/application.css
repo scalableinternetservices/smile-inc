@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face{
+   font-family: 'Billabong';
+   src:asset-url('billabong.otf');
+   src:font-url('billabong.ttf');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'HelveticaNeue-Thin';
+   src:asset-url('HelveticaNeue-Thin.otf');
+   src:font-url('HelveticaNeue-Thin.otf');
+   font-weight: normal;
+   font-style: normal;
+}
+
+*
+{font-family: 'HelveticaNeue-Thin';}
+
+.navbar-text {
+   font-family: 'HelveticaNeue-Thin';
+}
