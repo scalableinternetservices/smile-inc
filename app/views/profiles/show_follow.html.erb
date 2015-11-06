@@ -1,0 +1,10 @@
+<% provide(:title, @title) %>
+<h3><%= @title %></h3>
+<% if @users.any? %>
+  <ul class="users follow">
+    <% puts @user.username %>
+    <% @users.each do |person| %>
+    <%= link_to person.username, profile_path(person.id) %><br>
+    <% end %>
+  </ul>
+<% end %>

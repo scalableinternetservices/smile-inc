@@ -1,4 +1,7 @@
 <h1> PROFILE  </h1>
+
+<% if(@profile.id == current_user.id)  %>
+<!-- If user logged in we can view this -->
 <p id="notice"><%= notice %></p>
 
 <li class="round-image-50"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
@@ -15,6 +18,39 @@
 </div>
 
 </p>
+
+<section class="stats">
+  <%= render 'stats' %>
+</section>
+
 <%= link_to 'Edit Profile', edit_profile_path(current_user) %>
 <%= link_to 'Home', root_path %>
+
+<% else %>
+
+</div>
+<li class="round-image-50"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
+<div>  
+<b>First name: </b><%= @profile.first_name %> <br/>
+</div>
+
+<div>
+<b>Last name: </b><%= @profile.last_name %><br />
+</div>
+
+<div>
+<b>About me: </b><%= @profile.about_me %><br />
+</div>
+
+</p>
+
+<section class="stats">
+  <%= render 'stats', locals: {profile: @profile.id}  %>
+</section>
+
+<%= link_to 'Home', root_path %>
+<% end %>
+
+
+
 

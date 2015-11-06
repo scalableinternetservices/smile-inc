@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
+  #resources :comments, :only => [:create]
+
   get 'chroma/index'
 
-  resources :mood_updates
+  resources :mood_updates do
+    resources :comments, :only => [:create]
+  end
+
+
   resources :moods
 
   devise_for :users, controllers: {
@@ -11,6 +17,12 @@ Rails.application.routes.draw do
                passwords: 'users/passwords'
              }
   resources :profiles
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
