@@ -6,19 +6,34 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= csrf_meta_tags %>
-
-  <% if user_signed_in? %>
-  <p><% puts current_user.id %></p>
-  Signed in as <%= current_user.username%>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-  <%= link_to('Profile', profile_path(current_user)) %>
-  <% else %>
-        <%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
-    <% end %>
 </head>
-<body>
 
-<%= yield %>
+<body>
+<!-- beg of Navigation bar -->
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+	<li><%= link_to 'Home', root_path %></li>
+	<% if user_signed_in? %>
+	<li> Signed in as <%= current_user.username%> </li>
+
+      </ul>
+	<ul class="nav navbar-nav navbar-right">
+	<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+	<li><%= link_to('Profile', profile_path(current_user)) %></li>
+	<% else %>
+	<li><%= link_to 'Register', new_user_registration_path %></li> <li><%= link_to 'Sign in', new_user_session_path %></li>
+	<% end %>
+      <!-- end of Navigation bar -->
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
