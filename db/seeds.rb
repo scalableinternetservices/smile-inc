@@ -15,9 +15,22 @@ User.create!(username: "Example User",
   username = Faker::Name.name
   email    = "example-#{n+1}@testing.org"
   password = "examplepin"
-  User.create!(username: username,
-  	       email:    email,
-	       password: password)
+  user = User.create(username: username,
+                     email:    email,
+                     password: password )
+  aboutme = Faker::Company.catch_phrase
+  fname = Faker::Name.first_name
+  lname = Faker::Name.last_name
+  user.profile.update(first_name: fname,
+                      last_name:  lname,
+                      about_me:   aboutme )
+  image = rand(1..5)
+  path = "#{Rails.root}/public/images/#{image}.jpeg"
+  user.profile.avatar = File.open(path)
+  user.save!
+  #Note when seeding on AWS might not work
+  #Path issues
+  
 end
 
 # Following relationships

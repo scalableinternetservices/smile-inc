@@ -4,7 +4,7 @@
 <!-- If user logged in we can view this -->
 <p id="notice"><%= notice %></p>
 
-<li class="round-image-50"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
+<li class="list-unstyled"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
 <div>  
 <b>First name: </b><%= @profile.first_name %> <br/>
 </div>
@@ -27,8 +27,8 @@
 
 <% else %>
 
-</div>
-<li class="round-image-50"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
+
+<li class="list-unstyled"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
 <div>  
 <b>First name: </b><%= @profile.first_name %> <br/>
 </div>
