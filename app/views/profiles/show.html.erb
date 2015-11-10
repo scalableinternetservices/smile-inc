@@ -3,20 +3,20 @@
 <div class="profile_meat"> <!-- BEGIN: BIG Profile division -->
 <h2> PROFILE  </h2>
 <p id="notice"><%= notice %></p>
-<li class="list-unstyled"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
-<li><b>First name: </b><%= @profile.first_name %></li>
-<li><b>Last name: </b><%= @profile.last_name %></li>
-<li><b>About me: </b><%= @profile.about_me %></li>
-<li>
-<section class="stats">
-  <%= render 'stats' %>
-</section>
-</li>
-<!-- If user logged in we can view this -->
-<% if(@profile.id == current_user.id)  %>
-<%= link_to 'Edit Profile', edit_profile_path(current_user) %>
-<% end %>
-
+  <li class="list-unstyled"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
+   <li class="list-unstyled"><b>First name: </b><%= @profile.first_name %></li>
+  <li class="list-unstyled"><b>Last name: </b><%= @profile.last_name %></li>
+  <li class="list-unstyled"><b>About me: </b><%= @profile.about_me %></li>
+  <li  class="list-unstyled">
+    <section class="stats">
+      <%= render 'stats' %>
+    </section>
+  </li>
+  <!-- If user logged in we can view this -->
+  <% if(@profile.id == current_user.id)  %>
+  <p><%= link_to 'Edit Profile', edit_profile_path(current_user) %></p>
+  <% end %>
+  
 </div><!-- END: BIG Profile division -->
 
 <!-- This renders the chart we see -->

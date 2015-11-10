@@ -1,25 +1,28 @@
 // Place all the styles related to the Profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-li {
-    float: left;
- 
-}
-
 .profile_meat {
+   width: 300px;
    float: left;
-   width: 200px;
-   overflow: hidden;
-   grid-column: auto;
-   position: absolute;
-   clear: right;
 }
 
 .chart {
-   float:right;
-   width: 600px;
-   grid-column: auto;
-   clear: left;
-   overflow: hidden;
+   width: 550px;
+   float: right;
+       }
+
+
+table {
+    width: 100%;
+    border-collapse: separate; /* Not really necessary unless you use normalize.js */
+    border-spacing: 0px; /* take out spaces between cells */
 }
 
+tr {
+    #background-color: #99CCFF;
+}
+
+td {
+    width: 50%;
+    border-bottom: 1px solid; /* move spacing to the cell */
+}

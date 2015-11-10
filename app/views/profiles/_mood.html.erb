@@ -1,18 +1,5 @@
 <% @view_user = User.find(@profile.id) %>
-<!--
-<div class="mood">
-  
-<p> Latest moods </br>
 
-  <% @view_user.mood.each do |mood| %>
-
-  <%= mood.color %> 
-  <%= mood.mood %></br>
-</p>
-    <% end %>
-
-</div>
--->
 <h2> MOODS </h2>
 <div class="mood_chart">
   <%= chart_points = {}
@@ -20,6 +7,68 @@
     chart_points[mood_update.created_at] = mood_update.intensity
    end 
    line_chart chart_points, {:discrete => true } %>
+</div>
+
+<h2><%= @view_user.username %> Mood Updates</h2>
+
+  <% @mood_updates = @view_user.mood_update %>
+  
+  <% @mood_updates.each do |mood_update| %>
+  
+  <table style="margin:auto">
+    <!-- HEAD - status -->
+    <thead>
+      <tr>
+	<th><%= mood_update.mood.mood %>: <%= mood_update.desc %></th>
+      </tr>
+    </thead>
+    <!-- BODY - comments -->
+    <tbody >
+      <tr>
+	<td>
+	<ul>
+	<% mood_update.comment.each do |comment| %>
+	<li display="inline"  class="list-unstyled"> comments:  <%= comment.body %></li>
+	<% end %>
+	<%= form_for ([mood_update, Comment.new]) do |f| %>
+
+	<li display="inline"  class="list-unstyled">
+	  <% f.label :body, "Add comment" %> <br/>
+	  <%= f.text_field :body %>
+	</li>
+
+	<li display="inline"  class="list-unstyled"><%= f.submit "Add comment" %> </li>
+	<% end %>
+	</ul>
+	</td>
+    </tr>
+    </tbody>
+    
+</table>
+<% end %>
+
+
+
+<h2> Recent moods </h2>
+<div class="latest_mood">
+  <table>
+    <thread>
+      <tr>
+	<th> Color </th>
+	<th> Mood </th>
+	<th> Last updated </th>
+      </tr>
+    </thread>
+    <tbody>
+      <% @view_user.mood.each do |mood| %>
+  <tr>
+    <td><%= mood.color %> </td>
+    <td> <%= mood.mood %></td>
+    <td><%= mood.updated_at %></td>
+  </tr>
+  <% end %>
+    </tbody>
+  </table>
 </div>
 
 
