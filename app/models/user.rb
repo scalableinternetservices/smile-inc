@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_one :profile
 
   has_many :comment
+  has_many :mood
+  has_many :mood_update
 
   #creates profile at user registration
   after_create :create_profile

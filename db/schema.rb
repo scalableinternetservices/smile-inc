@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105191639) do
+ActiveRecord::Schema.define(version: 20151109233543) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20151105191639) do
     t.integer  "intensity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "user_id"
   end
 
   add_index "mood_updates", ["mood_id"], name: "index_mood_updates_on_mood_id"
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151105191639) do
     t.string   "mood"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
