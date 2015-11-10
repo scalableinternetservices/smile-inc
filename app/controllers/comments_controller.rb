@@ -8,7 +8,11 @@ class CommentsController < ApplicationController
     @comment = @mood_update.comment.new(comment_params)
     #@comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to @mood_update
+      if current_user.id == @mood_update.id
+        redirect_to @mood_update
+      else
+        redirect_to profile_path(@mood_update.user_id)
+      end
     end
       
   end

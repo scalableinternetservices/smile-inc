@@ -4,7 +4,8 @@ class MoodUpdatesController < ApplicationController
   # GET /mood_updates
   # GET /mood_updates.json
   def index
-    @mood_updates = MoodUpdate.all
+    @user = current_user
+    @mood_updates = @user.mood_update.all
   end
 
   # GET /mood_updates/1
@@ -14,17 +15,20 @@ class MoodUpdatesController < ApplicationController
 
   # GET /mood_updates/new
   def new
-    @mood_update = MoodUpdate.new
+    @user = current_user
+    @mood_update = @user.mood_update.new
   end
 
   # GET /mood_updates/1/edit
   def edit
+    @mood_update = MoodUpdate.find_by user_id: current_user.id
   end
 
   # POST /mood_updates
   # POST /mood_updates.json
   def create
-    @mood_update = MoodUpdate.new(mood_update_params)
+    @user = current_user
+    @mood_update = @user.mood_update.new(mood_update_params)
 
     respond_to do |format|
       if @mood_update.save
@@ -69,6 +73,6 @@ class MoodUpdatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mood_update_params
-      params.require(:mood_update).permit(:mood_id, :desc, :intensity)
+      params.require(:mood_update).permit(:mood_id, :desc, :intensity, :user_id)
     end
 end

@@ -2,7 +2,7 @@
 <div id="hometitle">
 <h1>Chroma</h1>
 </div>
-
+<% if user_signed_in? %>
 <br>
 <h3>Here is the list of your saved moods</h3>
 
@@ -14,7 +14,8 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
+  <!-- Added to make sure its only your mood that shows up -->
+  <% @moodlist = current_user.mood %>
   <tbody>
     <% @moodlist.each do |mood| %>
       <tr>
@@ -44,7 +45,8 @@
   </thead>
 
   <tbody>
-    <% @updatelist.each do |mood_update| %>
+      <% @moodupdate_list = current_user.mood_update %>
+      <% @moodupdate_list.each do |mood_update| %>
       <tr>
         <td><%= mood_update.mood.mood %></td>
         <td><%= mood_update.desc %></td>
@@ -59,4 +61,13 @@
 <br>
 
 
+</div >
+<% else %>
+<div class="start">
+
+    <%= link_to  "<button type='button' class='btn btn-default btn-lg'>Register</button></br>".html_safe, new_user_registration_path %>
+<h4>or</h4>
+
+  <%= link_to "<button type='button' class='btn btn-default btn-lg'>Sign in </button></br>".html_safe, new_user_session_path %>
 </div>
+<% end %>
