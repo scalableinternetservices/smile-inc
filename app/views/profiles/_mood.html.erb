@@ -1,5 +1,5 @@
 <% @view_user = User.find(@profile.id) %>
-
+<!--
 <div class="mood">
   
 <p> Latest moods </br>
@@ -12,8 +12,8 @@
     <% end %>
 
 </div>
-
-<h3> MOODS </h3>
+-->
+<h2> MOODS </h2>
 <div class="mood_chart">
   <%= chart_points = {}
    @view_user.mood_update.each do |mood_update|

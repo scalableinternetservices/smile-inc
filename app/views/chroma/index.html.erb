@@ -45,7 +45,8 @@
   </thead>
 
   <tbody>
-    <% @updatelist.each do |mood_update| %>
+      <% @moodupdate_list = current_user.mood_update %>
+      <% @moodupdate_list.each do |mood_update| %>
       <tr>
         <td><%= mood_update.mood.mood %></td>
         <td><%= mood_update.desc %></td>
@@ -60,7 +61,13 @@
 <br>
 
 
-</div>
+</div >
 <% else %>
-<p><%= link_to 'Register', new_user_registration_path %></li> <li><%= link_to 'Sign in', new_user_session_path %></p>
+<div class="start">
+
+    <%= link_to  "<button type='button' class='btn btn-default btn-lg'>Register</button></br>".html_safe, new_user_registration_path %>
+<h4>or</h4>
+
+  <%= link_to "<button type='button' class='btn btn-default btn-lg'>Sign in </button></br>".html_safe, new_user_session_path %>
+</div>
 <% end %>

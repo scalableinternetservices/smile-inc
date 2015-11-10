@@ -4,36 +4,29 @@ class MoodUpdatesController < ApplicationController
   # GET /mood_updates
   # GET /mood_updates.json
   def index
-    #@user = User.find(:id)
     @user = current_user
     @mood_updates = @user.mood_update.all
-    #@mood_updates = MoodUpdate.all
   end
 
   # GET /mood_updates/1
   # GET /mood_updates/1.json
   def show
-    #  @user = User.find(params[:id])
-  #  @mood_updates = @user.mood_update.find(:id)
   end
 
   # GET /mood_updates/new
   def new
-    #@mood_update = MoodUpdate.new
     @user = current_user
     @mood_update = @user.mood_update.new
   end
 
   # GET /mood_updates/1/edit
   def edit
-    #@mood_update = MoodUpdate.find_by user_id: current_user.id
     @mood_update = MoodUpdate.find_by user_id: current_user.id
   end
 
   # POST /mood_updates
   # POST /mood_updates.json
   def create
-    #@mood_update = MoodUpdate.new(mood_update_params)
     @user = current_user
     @mood_update = @user.mood_update.new(mood_update_params)
 

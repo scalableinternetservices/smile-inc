@@ -1,55 +1,28 @@
-<h1> PROFILE  </h1>
 
-<% if(@profile.id == current_user.id)  %>
-<!-- If user logged in we can view this -->
+
+<div class="profile_meat"> <!-- BEGIN: BIG Profile division -->
+<h2> PROFILE  </h2>
 <p id="notice"><%= notice %></p>
-
 <li class="list-unstyled"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
-<div>  
-<b>First name: </b><%= @profile.first_name %> <br/>
-</div>
-
-<div>
-<b>Last name: </b><%= @profile.last_name %><br />
-</div>
-
-<div>
-<b>About me: </b><%= @profile.about_me %><br />
-</div>
-
-</p>
-
+<li><b>First name: </b><%= @profile.first_name %></li>
+<li><b>Last name: </b><%= @profile.last_name %></li>
+<li><b>About me: </b><%= @profile.about_me %></li>
+<li>
 <section class="stats">
   <%= render 'stats' %>
 </section>
-
+</li>
+<!-- If user logged in we can view this -->
+<% if(@profile.id == current_user.id)  %>
 <%= link_to 'Edit Profile', edit_profile_path(current_user) %>
-
-<% else %>
-
-
-<li class="list-unstyled"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
-<div>  
-<b>First name: </b><%= @profile.first_name %> <br/>
-</div>
-
-<div>
-<b>Last name: </b><%= @profile.last_name %><br />
-</div>
-
-<div>
-<b>About me: </b><%= @profile.about_me %><br />
-</div>
-
-</p>
-
-<section class="stats">
-  <%= render 'stats', locals: {profile: @profile.id}  %>
-</section>
-
 <% end %>
 
-  <%= render 'mood', locals: {user: @user.id}  %>
+</div><!-- END: BIG Profile division -->
 
+<!-- This renders the chart we see -->
+<div class="chart">
+<br style="clear:both;"/>
+  <%= render 'mood', locals: {user: @user.id}  %>
+</div>
 
 

@@ -13,8 +13,6 @@ class MoodsController < ApplicationController
   # GET /moods/1
   # GET /moods/1.json
   def show
-    @user = User.find(params[:id])
-    @moods = @user.mood.all
   end
 
   # GET /moods/new
