@@ -1,0 +1,9 @@
+<% @view_user = User.find(@profile.id) %>
+  <div id="follow_form">
+  <% if current_user.following?(@view_user) %>
+    <%= render 'unfollow' %>
+  <% else %>
+    <%= render 'follow' %>
+  <% end %>
+  </div>
+
