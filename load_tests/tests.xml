@@ -3,33 +3,40 @@
 <tsung loglevel="notice" version="1.0">
 
   <clients>
-    <client host="localhost" use_controller_vm="true" maxusers="30000"/>
+    <client host="localhost" use_controller_vm="true" maxusers="100000"/>
   </clients>
 
   <servers>
-    <server host="ec2-52-32-215-55.us-west-2.compute.amazonaws.com" port="80" type="tcp"/>
+    <server host="ec2-52-34-170-9.us-west-2.compute.amazonaws.com" port="80" type="tcp"/>
   </servers>
 
 
   <load>
-    <arrivalphase phase="1" duration="20" unit="second">
+    <arrivalphase phase="1" duration="60" unit="second">
       <users arrivalrate="1" unit="second"/>
     </arrivalphase>
-    <arrivalphase phase="2" duration="20" unit="second">
+    <arrivalphase phase="2" duration="60" unit="second">
       <users arrivalrate="2" unit="second"/>
     </arrivalphase>
-    <arrivalphase phase="3" duration="20" unit="second">
+    <arrivalphase phase="3" duration="60" unit="second">
       <users arrivalrate="4" unit="second"/>
     </arrivalphase>
 
-    <arrivalphase phase="4" duration="20" unit="second">
+    <arrivalphase phase="4" duration="60" unit="second">
       <users arrivalrate="8" unit="second"/>
     </arrivalphase>
-<!--    
-    <arrivalphase phase="5" duration="20" unit="second">
+
+    <arrivalphase phase="5" duration="60" unit="second">
       <users arrivalrate="16" unit="second"/>
     </arrivalphase>
-  -->
+
+    <arrivalphase phase="6" duration="60" unit="second">
+      <users arrivalrate="24" unit="second"/>
+    </arrivalphase>  
+
+    <arrivalphase phase="7" duration="60" unit="second">
+      <users arrivalrate="36" unit="second"/>
+    </arrivalphase> 
   </load>
 
   <options>
@@ -47,7 +54,7 @@
       </request>
 
       <request>
-        <dyn_variable name="authenticity_token" ></dyn_variable> 
+        <!-- <dyn_variable name="authenticity_token" ></dyn_variable> -->
         <http url="/users/sign_up" version="1.1" method="GET"></http>
       </request>
 
@@ -66,7 +73,6 @@
           version='1.1'
           method='POST'
           contents='
-                    authenticity_token=%%_authenticity_token%%&amp;
                     user%5Bemail%5D=%%_random_username%%%40test.com&amp;
                     user%5Busername%5D=%%_random_username%%&amp;
                     user%5Bpassword%5D=%%_random_password%%&amp;
@@ -80,7 +86,7 @@
       <!-- Have users create new moods -->
 
       <request>
-        <dyn_variable name="authenticity_token" ></dyn_variable>
+        <!-- <dyn_variable name="authenticity_token" ></dyn_variable> -->
         <http url='/moods/new' version="1.1" method="GET"></http>
       </request>
 
@@ -91,7 +97,7 @@
           url='/moods'
           version='1.1'
           method='POST'
-          contents='authenticity_token=%%_authenticity_token%%&amp;
+          contents='
                     mood%5Bcolor%5D=red&amp;
                     mood%5Bmood%5D=angry&amp;
                     commit=Create+Mood'>
@@ -101,7 +107,7 @@
       <thinktime value="1" random="true"></thinktime>
 
       <request>
-        <dyn_variable name="authenticity_token" ></dyn_variable>
+        <!-- <dyn_variable name="authenticity_token" ></dyn_variable> -->
         <http url='/moods/new' version="1.1" method="GET"></http>
       </request>
 
@@ -112,7 +118,7 @@
           url='/moods'
           version='1.1'
           method='POST'
-          contents='authenticity_token=%%_authenticity_token%%&amp;
+          contents='
                     mood%5Bcolor%5D=blue&amp;
                     mood%5Bmood%5D=sad&amp;
                     commit=Create+Mood'>
@@ -121,7 +127,55 @@
 
       <!-- Have users make updates with moods -->
 
+      <thinktime value="1" random="true"></thinktime>
 
+      <request>
+        <!-- <dyn_variable name="authenticity_token" ></dyn_variable> -->
+        <http url='/mood_updates/new' version="1.1" method="GET"></http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+        <http
+          url='/mood_updates'
+          version='1.1'
+          method='POST'
+          contents='
+                    mood_update%5Bmood_id%5D=102&amp;
+                    mood_update%5Bdesc%5D="failed my midterm"&amp;
+                    mood_update%5Bintensity%5D=8&amp;
+                    commit=Create+Mood+update'>
+        </http>
+      </request>
+
+      <thinktime value="1" random="true"></thinktime>
+
+      <request>
+        <!-- <dyn_variable name="authenticity_token" ></dyn_variable> -->
+        <http url='/mood_updates/new' version="1.1" method="GET"></http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+        <http
+          url='/mood_updates'
+          version='1.1'
+          method='POST'
+          contents='
+                    mood_update%5Bmood_id%5D=103&amp;
+                    mood_update%5Bdesc%5D="lost a bet"&amp;
+                    mood_update%5Bintensity%5D=4&amp;
+                    commit=Create+Mood+update'>
+        </http>
+      </request>
+
+      <thinktime value="1" random="true"></thinktime>
+
+      <request>
+        <http url="/mood_updates" version="1.1" method="GET"/>
+      </request>
 
 
     </session>

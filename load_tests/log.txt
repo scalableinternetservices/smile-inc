@@ -3,4 +3,19 @@
 	       Have users register and create 2 different moods
 
 20151120-1004: Arrival rate of 8
-	       500s errors appear with phase 4
+	       500s errors appear with phase 4 (rate of 8)
+
+
+***nginx with 1 process, 16 thread***
+pushed up to phase 5, rate of 16
+fails occur with phase 5, but handles much better than 4 processes
+
+
+Added mood_updates to tests and brought down to phase 4
+failures occur with phase 4
+
+***ELB 2 nginx (1P16T) instance cluster
+All good!
+
+Push up to phase 6
+Failures with phase 5. 
