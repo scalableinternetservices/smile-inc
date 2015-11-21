@@ -72,12 +72,7 @@
           url='/users'
           version='1.1'
           method='POST'
-          contents='
-                    user%5Bemail%5D=%%_random_username%%%40test.com&amp;
-                    user%5Busername%5D=%%_random_username%%&amp;
-                    user%5Bpassword%5D=%%_random_password%%&amp;
-                    user%5Bpassword_confirmation%5D=%%_random_password%%&amp;
-                    commit=Sign+up'>
+          contents='user%5Bemail%5D=%%_random_username%%%40test.com&amp;user%5Busername%5D=%%_random_username%%&amp;user%5Bpassword%5D=%%_random_password%%&amp;user%5Bpassword_confirmation%5D=%%_random_password%%&amp;commit=Sign+up'>
         </http>
       </request>
 
@@ -97,10 +92,7 @@
           url='/moods'
           version='1.1'
           method='POST'
-          contents='
-                    mood%5Bcolor%5D=red&amp;
-                    mood%5Bmood%5D=angry&amp;
-                    commit=Create+Mood'>
+          contents='mood%5Bcolor%5D=red&amp;mood%5Bmood%5D=angry&amp;commit=Create+Mood'>
         </http>
       </request>
     
@@ -118,10 +110,7 @@
           url='/moods'
           version='1.1'
           method='POST'
-          contents='
-                    mood%5Bcolor%5D=blue&amp;
-                    mood%5Bmood%5D=sad&amp;
-                    commit=Create+Mood'>
+          contents='mood%5Bcolor%5D=blue&amp;mood%5Bmood%5D=sad&amp;commit=Create+Mood'>
         </http>
       </request>
 
@@ -141,11 +130,7 @@
           url='/mood_updates'
           version='1.1'
           method='POST'
-          contents='
-                    mood_update%5Bmood_id%5D=102&amp;
-                    mood_update%5Bdesc%5D="failed my midterm"&amp;
-                    mood_update%5Bintensity%5D=8&amp;
-                    commit=Create+Mood+update'>
+          contents='mood_update%5Bmood_id%5D=102&amp;mood_update%5Bdesc%5D="failed my midterm"&amp;mood_update%5Bintensity%5D=8&amp;commit=Create+Mood+update'>
         </http>
       </request>
 
@@ -163,11 +148,7 @@
           url='/mood_updates'
           version='1.1'
           method='POST'
-          contents='
-                    mood_update%5Bmood_id%5D=103&amp;
-                    mood_update%5Bdesc%5D="lost a bet"&amp;
-                    mood_update%5Bintensity%5D=4&amp;
-                    commit=Create+Mood+update'>
+          contents='mood_update%5Bmood_id%5D=103&amp;mood_update%5Bdesc%5D="lost a bet"&amp;mood_update%5Bintensity%5D=4&amp;commit=Create+Mood+update'>
         </http>
       </request>
 
