@@ -43,6 +43,8 @@ group :development, :test do
   gem 'byebug'
 end
 
+gem 'bullet'
+
 group :test do
   gem 'minitest-reporters', '1.1.3'
 end

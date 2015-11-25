@@ -71,4 +71,9 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
   
+  def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+    where("username like ?", "%#{query}%") 
+  end
+
 end

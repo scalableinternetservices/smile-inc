@@ -4,8 +4,10 @@ class MoodUpdatesController < ApplicationController
   # GET /mood_updates
   # GET /mood_updates.json
   def index
+
     @user = current_user
     @mood_updates = @user.mood_update.all
+
   end
 
   # GET /mood_updates/1
