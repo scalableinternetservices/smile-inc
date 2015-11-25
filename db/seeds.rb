@@ -30,6 +30,19 @@
   user.save!
   #Note when seeding on AWS might not work
   #Path issues
+
+  #seeds for the moods
+  k = user.mood.create!(color: "red",
+                       mood: "moody")
+
+  5.times do |n|
+    intense = rand(1..10)
+    user.mood_update.create(mood_id: k.id,
+                            desc: "blah",
+                            intensity: intense,
+                            created_at: "2015-11-#{n} 06:18:17")
+    user.save!
+  end
   
 end
 

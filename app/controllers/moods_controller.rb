@@ -4,7 +4,10 @@ class MoodsController < ApplicationController
   # GET /moods
   # GET /moods.json
   def index
-    @moods = Mood.all
+    #need to get the user id in order to show the moods
+    @user = current_user
+    @moods = @user.mood.all
+    #@moods = Mood.all
   end
 
   # GET /moods/1
@@ -14,7 +17,12 @@ class MoodsController < ApplicationController
 
   # GET /moods/new
   def new
-    @mood = Mood.new
+    #only currently signed in users can create it
+    if user_signed_in?
+      @user = current_user
+      @mood = @user.mood.new
+      #@mood = Mood.new
+    end
   end
 
   # GET /moods/1/edit
@@ -24,7 +32,9 @@ class MoodsController < ApplicationController
   # POST /moods
   # POST /moods.json
   def create
-    @mood = Mood.new(mood_params)
+    #only current users can create it
+    @user = current_user
+    @mood = @user.mood.new(mood_params)
 
     respond_to do |format|
       if @mood.save
@@ -69,6 +79,6 @@ class MoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mood_params
-      params.require(:mood).permit(:color, :mood)
+      params.require(:mood).permit(:color, :mood, :user_id)
     end
 end

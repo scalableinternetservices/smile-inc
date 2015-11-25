@@ -49,7 +49,7 @@ class ProfilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
   def set_profile
     #@profile=Profile.find_by user_id: current_user.id
-    @profile==Profile.find(params[:id])
+    @profile=Profile.find(params[:id])
   end
 
   #Note: update this everytime we add a new attribute to Profile model

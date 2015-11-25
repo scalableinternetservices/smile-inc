@@ -12,7 +12,8 @@
   </thead>
 
   <tbody>
-    <% @moods.each do |mood| %>
+  
+    <% @user.mood.each do |mood| %>
       <tr>
         <td> <%= mood.color %></td>
         <td> <%= mood.mood %></td>
