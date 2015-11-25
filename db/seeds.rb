@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Users
-User.create!(username: "Example User",
-             email:    "example@testing.org",
-	     password: "examplepin")
+# User.create!(username: "Example User",
+#              email:    "example@testing.org",
+# 	     password: "examplepin")
 
-99.times do |n|
+100.times do |n|
   username = Faker::Name.name
   email    = "example-#{n+1}@testing.org"
   password = "examplepin"
@@ -25,12 +25,44 @@ User.create!(username: "Example User",
                       last_name:  lname,
                       about_me:   aboutme )
   image = rand(1..5)
-  path = "#{Rails.root}/public/images/#{image}.jpeg"
-  user.profile.avatar = File.open(path)
+  # path = "#{Rails.root}/public/images/#{image}.jpeg"
+  # user.profile.avatar = File.open(path)
   user.save!
   #Note when seeding on AWS might not work
   #Path issues
   
+end
+
+100.times do |n|
+
+  colors = Faker::Commerce.color
+  moods = Faker::Name.name
+
+  lol = Mood.create!(color: colors , mood: moods)
+  
+  lol.save!
+end
+
+100.times do |n|
+
+  id = rand(1..100)
+  intense = rand(1..10)
+  k = MoodUpdate.create(mood_id: id,
+                            desc: "blah",
+                            intensity: intense,
+                            created_at: "2015-11-#{n} 06:18:17")
+  k.save!
+
+end
+
+100.times do |n|
+
+  bodies = Faker::Hacker.adjective
+  m = rand(1..100)
+  c = Comment.create(body: bodies, mood_update_id: m)
+
+  c.save!
+
 end
 
 # Following relationships

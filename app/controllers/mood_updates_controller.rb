@@ -4,6 +4,7 @@ class MoodUpdatesController < ApplicationController
   # GET /mood_updates
   # GET /mood_updates.json
   def index
+    #@mood_updates = MoodUpdate.includes(:mood)
     @mood_updates = MoodUpdate.all
   end
 

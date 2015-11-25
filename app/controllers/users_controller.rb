@@ -13,5 +13,14 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'profiles/show_follow'
   end
+
+  def index
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    else
+      @users = User.order("created_at DESC")
+    end
+  end
+
 end
 
