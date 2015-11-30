@@ -1,4 +1,3 @@
-
 <%= form_for(@mood_update) do |f| %>
   <% if @mood_update.errors.any? %>
     <div id="error_explanation">
@@ -14,7 +13,9 @@
 
   <div class="field">
     <%= f.label :mood_id %><br>
-    <%= collection_select(:mood_update, :mood_id, current_user.mood.all, :id, :mood) %> 
+    <% mood_list = Mood.using(:moodshard).where(user_id: current_user.id) %>
+    <%= collection_select(:mood_update, :mood_id, mood_list, :id, :mood) %>
+    <!-- <%= collection_select(:mood_update, :mood_id, current_user.mood.all, :id, :mood) %>  -->
   </div>
   <div class="field">
     <%= f.label :desc %><br>

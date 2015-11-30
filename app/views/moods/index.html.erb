@@ -12,12 +12,14 @@
   </thead>
 
   <tbody>
-  
-    <% @user.mood.each do |mood| %>
-      <tr>
+       <% @current_id = current_user.id %>
+       <% @moodlist = Mood.using(:moodshard).where(user_id: @current_id) %>
+       <% @moodlist.each do |mood| %>
+       <tr>
         <td> <%= mood.color %></td>
         <td> <%= mood.mood %></td>
-        <td> <%= link_to ' Show ', mood, class: "btn btn-xs btn-default" %></td>
+
+	<td> <%= link_to ' Show ', mood, class: "btn btn-xs btn-default" %></td>
 
 	<td><%= link_to ' Edit ', edit_mood_path(mood),  class: "btn btn-xs btn-default" %></td>
 

@@ -15,7 +15,10 @@
     </tr>
   </thead>
   <!-- Added to make sure its only your mood that shows up -->
-  <% @moodlist = current_user.mood %>
+
+  <!-- <% @moodlist = current_user.mood %> -->
+  <% @current_id = current_user.id %>
+  <% @moodlist = Mood.using(:moodshard).where(user_id: @current_id) %>
   <tbody>
     <% @moodlist.each do |mood| %>
       <tr>
@@ -45,7 +48,8 @@
   </thead>
 
   <tbody>
-      <% @moodupdate_list = current_user.mood_update %>
+     <!-- <% @moodupdate_list = current_user.mood_update %> -->
+     <% @moodupdate_list = MoodUpdate.using(:moodshard).where(user_id: @current_id) %>
       <% @moodupdate_list.each do |mood_update| %>
       <tr>
         <td><%= mood_update.mood.mood %></td>

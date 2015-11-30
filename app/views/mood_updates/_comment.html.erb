@@ -1,7 +1,8 @@
-<% @mood_update.comment.each do |comment| %>
+<% @comment_form = Comment.using(:commentshard).where(:mood_update_id => @mood_update.id) %>
+<% @comment_form.each do |comment| %>
 <div>
   <p>
-  Comment created at : <%= comment.created_at %> </br>
+    Comment created at : <%= comment.created_at %> </br>
     <%= comment.body %> </br>
   </p>
 </div>

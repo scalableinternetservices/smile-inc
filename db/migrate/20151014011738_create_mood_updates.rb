@@ -1,4 +1,5 @@
 class CreateMoodUpdates < ActiveRecord::Migration
+using( :moodshard)
   def change
     create_table :mood_updates do |t|
       t.references :mood, index: true, foreign_key: true

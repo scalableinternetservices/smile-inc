@@ -1,6 +1,9 @@
 
 <p id="notice"><%= notice %></p>
 
+<% id = @mood.id %>
+<% @mood = Mood.using(:moodshard).find_by_id(id) %>
+
 <p>
   <strong>Color:</strong>
   <%= @mood.color %>

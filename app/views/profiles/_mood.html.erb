@@ -1,18 +1,20 @@
 <% @view_user = User.find(@profile.id) %>
-
+<!-- view user is just the damn id -->
+<% user_id = @view_user.id %>
 <h2> MOODS </h2>
 <div class="mood_chart">
   <%= chart_points = {}
-   @view_user.mood_update.each do |mood_update|
-    chart_points[mood_update.created_at] = mood_update.intensity
-   end 
+      @mood_update = MoodUpdate.using(:moodshard).where(user_id: user_id)
+      @mood_update.each do |mood_update| 
+         chart_points[mood_update.created_at] = mood_update.intensity
+      end 
    line_chart chart_points, {:discrete => true } %>
 </div>
 
 <h2><%= @view_user.username %> Mood Updates</h2>
 
-  <% @mood_updates = @view_user.mood_update %>
-  
+<!--  <% @mood_updates = @view_user.mood_update %> -->
+  <% @mood_updates = MoodUpdate.using(:moodshard).where(user_id: user_id) %>
   <% @mood_updates.each do |mood_update| %>
   
   <table style="margin:auto">
@@ -26,8 +28,9 @@
     <tbody >
       <tr>
 	<td>
-	<ul>
-	<% mood_update.comment.each do |comment| %>
+	  <ul>
+	 <% @comment = Comment.using(:commentshard).where(mood_update_id: mood_update.id)%>
+	<% @comment.each do |comment| %>
 	<li display="inline"  class="list-unstyled"> comments:  <%= comment.body %></li>
 	<% end %>
 	<%= form_for ([mood_update, Comment.new]) do |f| %>
@@ -60,7 +63,8 @@
       </tr>
     </thread>
     <tbody>
-      <% @view_user.mood.each do |mood| %>
+      <% @recent_mood = Mood.using(:moodshard).where(user_id: user_id) %>
+      <% @recent_mood.each do |mood| %>
   <tr>
     <td><%= mood.color %> </td>
     <td> <%= mood.mood %></td>

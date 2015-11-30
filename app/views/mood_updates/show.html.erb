@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+<% id = @mood_update.id %>
+<% @mood_update = MoodUpdate.using(:moodshard).find_by_id(id) %>
 
 <p>
   <strong>Mood:</strong>
@@ -20,7 +22,8 @@
 
 <h2> Comments </h2>
 <div id="comments">
-<%= render partial: "comment", locals: {mood_update: @mood_update.comment} %>
+
+  <%= render partial: "comment", locals: {mood_update: @mood_update.id} %>
 </div>
 <%= form_for ([ @mood_update, Comment.new]) do |f| %>
 <p>

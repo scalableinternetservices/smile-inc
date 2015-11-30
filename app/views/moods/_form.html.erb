@@ -1,3 +1,4 @@
+
 <%= form_for(@mood) do |f| %>
   <% if @mood.errors.any? %>
     <div id="error_explanation">
@@ -19,6 +20,7 @@
     <%= f.label :mood %><br>
     <%= f.text_field :mood %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

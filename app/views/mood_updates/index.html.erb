@@ -14,6 +14,8 @@
   </thead>
 
   <tbody>
+    <% @current_id = current_user.id %>
+    <% @mood_updates = MoodUpdate.using(:moodshard).where(user_id: @current_id) %>
     <% @mood_updates.each do |mood_update| %>
       <tr>
         <td><%= mood_update.mood.mood %></td>
