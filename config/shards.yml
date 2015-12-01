@@ -1,15 +1,11 @@
- octopus:
+octopus:
   environments:
     - development
-    - production
+    - test
   development:
-    shards:
-          moodshard:
-             adapter: sqlite3
-             host: localhost
-             database: db/mood_shard
-
-          commentshard:
-             adapter: sqlite3
-             host: localhost
-             database: db/comment_shard
+    moodshard:
+      adapter: sqlite3
+      database: db/mood_shard
+    commentshard:
+      adapter: sqlite3
+      database: db/comment_shard
