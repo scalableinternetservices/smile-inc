@@ -1,7 +1,7 @@
 class CreateMoods < ActiveRecord::Migration
 using(:moodshard)
   def change
-    create_table :moods do |t|
+    create_table :moods, :force => true do |t|
       t.string :color
       t.string :mood
 
