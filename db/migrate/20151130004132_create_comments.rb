@@ -1,7 +1,7 @@
 class CreateComments < ActiveRecord::Migration
   using(:commentshard)
   def change
-    create_table :comments do |t|
+    create_table :comments, :force => true do |t|
       t.references :mood_update, index: true, foreign_key: true
       t.text :body
 
