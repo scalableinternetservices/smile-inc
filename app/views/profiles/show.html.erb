@@ -3,8 +3,10 @@
 <div class="profile_meat"> <!-- BEGIN: BIG Profile division -->
 <h2> PROFILE  </h2>
 <p id="notice"><%= notice %></p>
+
+<% cache(cache_key_for_profile_summary(@profile)) do %>
   <li class="list-unstyled"><%= image_tag(@profile.avatar.url(:thumb)) %> </li>
-   <li class="list-unstyled"><b>First name: </b><%= @profile.first_name %></li>
+  <li class="list-unstyled"><b>First name: </b><%= @profile.first_name %></li>
   <li class="list-unstyled"><b>Last name: </b><%= @profile.last_name %></li>
   <li class="list-unstyled"><b>About me: </b><%= @profile.about_me %></li>
   <li  class="list-unstyled">
@@ -12,6 +14,8 @@
       <%= render 'stats' %>
     </section>
   </li>
+<% end %>
+
   <!-- If user logged in we can view this -->
   <% if(@profile.id == current_user.id)  %>
   <p><%= link_to 'Edit Profile', edit_profile_path(current_user) %></p>
@@ -22,6 +26,6 @@
 <!-- This renders the chart we see -->
 <div class="chart">
 <br style="clear:both;"/>
-  <%= render 'mood', locals: {user: @user.id}  %>
+  <%= render 'mood', locals: {user: @profile.user}  %>
 </div>
 

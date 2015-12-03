@@ -1,20 +1,22 @@
-<% @view_user = User.find(@profile.id) %>
-
-<h2> MOODS </h2>
-<div class="mood_chart">
-  <%= chart_points = {}
-   @view_user.mood_update.each do |mood_update|
-    chart_points[mood_update.created_at] = mood_update.intensity
-   end 
-   line_chart chart_points, {:discrete => true } %>
-</div>
+<% @view_user = @profile.user %>
+<% cache(cache_key_for_profile_mood_page(@view_user)) do %>
+    <% cache(cache_key_for_profile_mood_chart(@view_user)) do %>
+        <h2> MOODS </h2>
+        <div class="mood_chart">
+          <%= chart_points = {}
+           @view_user.mood_update.each do |mood_update|
+            chart_points[mood_update.created_at] = mood_update.intensity
+           end 
+           line_chart chart_points, {:discrete => true } %>
+        </div>
+    <% end %>
 
 <h2><%= @view_user.username %> Mood Updates</h2>
 
   <% @mood_updates = @view_user.mood_update %>
   
-  <% @mood_updates.each do |mood_update| %>
-  
+<% @mood_updates.each do |mood_update| %>
+  <% cache(cache_key_for_profile_update_row(mood_update)) do %>  
   <table style="margin:auto">
     <!-- HEAD - status -->
     <thead>
@@ -44,11 +46,10 @@
     </tr>
     </tbody>
     
-</table>
+  </table>
+  <% end %>
 <% end %>
-
-
-
+<% cache(cache_key_for_profile_mood(@view_user)) do %>
 <h2> Recent moods </h2>
 <div class="latest_mood">
   <table>
@@ -70,8 +71,5 @@
     </tbody>
   </table>
 </div>
-
-
-
-
-
+<% end %>
+<% end %>
