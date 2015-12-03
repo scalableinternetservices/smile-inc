@@ -11,7 +11,7 @@
 
 <h2><%= @view_user.username %> Mood Updates</h2>
 
-  <% @mood_updates = @view_user.mood_update %>
+  <% @mood_updates = @view_user.mood_update.includes(:mood).includes(:comment) %>
   
   <% @mood_updates.each do |mood_update| %>
   

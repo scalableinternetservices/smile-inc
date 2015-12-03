@@ -6,7 +6,9 @@ class MoodUpdatesController < ApplicationController
   def index
 
     @user = current_user
-    @mood_updates = @user.mood_update.all
+    @mood_updates = @user.mood_update.includes(:mood).all
+
+    # includes(:comments).includes(:community).all
 
   end
 

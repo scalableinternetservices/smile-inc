@@ -7,7 +7,10 @@ class MoodsController < ApplicationController
     #need to get the user id in order to show the moods
     @user = current_user
     @moods = @user.mood.all
-    #@moods = Mood.all
+    
+    # includes(:comments).includes(:community).all
+    # @moods = Mood.all
+
   end
 
   # GET /moods/1

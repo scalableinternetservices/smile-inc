@@ -45,7 +45,7 @@
   </thead>
 
   <tbody>
-      <% @moodupdate_list = current_user.mood_update %>
+      <% @moodupdate_list = current_user.mood_update.includes(:mood)%>
       <% @moodupdate_list.each do |mood_update| %>
       <tr>
         <td><%= mood_update.mood.mood %></td>
