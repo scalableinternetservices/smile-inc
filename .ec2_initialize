@@ -3,3 +3,5 @@ sudo yum install -y sqlite-devel
 sudo yum install -y ImageMagick
 sudo yum install -y ImageMagick-devel
 sudo yum install -y ghostscript
+
+rake db:seed
