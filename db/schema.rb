@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109233543) do
+ActiveRecord::Schema.define(version: 20151203094823) do
 
   create_table "comments", force: :cascade do |t|
+    t.integer  "mood_update_id"
     t.text     "body"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "mood_update_id"
   end
+
+  add_index "comments", ["mood_update_id"], name: "index_comments_on_mood_update_id"
 
   create_table "mood_updates", force: :cascade do |t|
     t.integer  "mood_id"
@@ -30,6 +32,7 @@ ActiveRecord::Schema.define(version: 20151109233543) do
   end
 
   add_index "mood_updates", ["mood_id"], name: "index_mood_updates_on_mood_id"
+  add_index "mood_updates", ["user_id"], name: "index_mood_updates_on_user_id"
 
   create_table "moods", force: :cascade do |t|
     t.string   "color"
@@ -51,6 +54,8 @@ ActiveRecord::Schema.define(version: 20151109233543) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"

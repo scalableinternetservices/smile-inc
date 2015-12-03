@@ -7,6 +7,6 @@ class CreateComments < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add index :comments, :mood_update_id 
+    
   end
 end
