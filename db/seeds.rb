@@ -31,7 +31,7 @@ end
 
 end
 
-100.times do |n|
+10000.times do |n|
 
   bodies = "lol"
   m = rand(1..100)
